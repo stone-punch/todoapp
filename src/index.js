@@ -3,8 +3,10 @@ import './todos.css';
 
 import { printTodos } from './print-todos';
 import { init as initForm } from './form';
+import {get as getStorage} from './storage'
 
-const todos = [];
+
+const todos = getStorage() || [];
 
 //
 // 폼,input 입력 이벤트 추가하기
