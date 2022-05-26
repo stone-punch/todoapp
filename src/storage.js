@@ -1,14 +1,13 @@
 const key = 'todos';
 
-
-function set(todos){
-    window.localStorage.setItem(key,JSON.stringify(todos));
+function set(todos) {
+  window.localStorage.setItem(key, JSON.stringify(todos));
 }
 
-function get(){
-    const localTodos = window.localStorage.getItem(key) || '[]';
-    const parsedTodos = JSON.parse(localTodos);
-    return parsedTodos;
-}
+function get() {
+  const localTodos = window.localStorage.getItem(key) || '[]';
+  const parsedTodos = JSON.parse(localTodos);
 
-export  {set, get};
+  return parsedTodos;
+}
+export { set, get };

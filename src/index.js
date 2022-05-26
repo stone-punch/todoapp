@@ -1,17 +1,10 @@
 import { log } from './utils';
-import './todos.css';
-
 import { printTodos } from './print-todos';
 import { init as initForm } from './form';
-import {get as getStorage} from './storage'
-
+import './todos.css';
+import { get as getStorage } from './storage';
 
 const todos = getStorage() || [];
-
-//
-// 폼,input 입력 이벤트 추가하기
-// 입력했을때 todo추가
-
 
 const deleteTodo = (index) => {
   console.log('delete', index);
@@ -19,17 +12,18 @@ const deleteTodo = (index) => {
   todos.splice(index, 1);
   print();
 };
-const toggleTodo = (index) => {
-  console.log('toggle');
-  todos[index].isDone = !todos[index].isDone;
-  print;
-};
 
 const print = () => {
   printTodos(todos);
 };
+const toggleTodo = (index) => {
+  console.log('toggle');
+  // index에 맞는 todo.isDone 반전
+  todos[index].isDone = !todos[index].isDone;
+  print();
+};
 
-// 삭제
+// 삭제,isDone
 document.body.addEventListener('click', (event) => {
   const index = parseInt(event.target.parentNode.dataset.index, 10);
   if (event.target.className === 'delete') {
